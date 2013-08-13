@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 	<head>
@@ -8,190 +8,212 @@
 
 		<meta name="description" content="Creative Coding">
 		<meta name="author" content="Lucas Rudi">
-
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
-
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
+		<title>R/GA BA - OSD - CSS3 On the Move </title>
+		<link href="css/reset.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/deck.core.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/deck.hash.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/deck.navigation.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/deck.status.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/swiss.css" rel="stylesheet" type="text/css" />
+		<link href="css/slides/horizontal-slide.css" rel="stylesheet" type="text/css" />
+		<link href="css/dem.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="css/code.mirror.css">
+		<script src="js/Three.js"></script>
+		<script src="js/RequestAnimationFrame.js"></script>
+		<script src="js/slides/modernizr.custom.js"></script>
 	</head>
 
-	<body>
+<body class="deck-container">
+	<section id="title" class="slide">
+		<h1><span>Processing & ProcessingJS</span><br />Creative Programming</h1>
+		<img style="max-width:10%" src="http://www.ptarmigan.ee/images/events/262/original/1000px-Processing_Logo_Clipped.png?1370559023">
+		<img style="max-width:10%" src="http://dailyjs.com/images/posts/processing-logo.png">
 
-		<div class="reveal">
+		<span class="signature">Created by Lucas Rudi</span>
+		
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Processing & ProcessingJS</h1>
-					<h2><img style="max-width:10%" src="http://www.ptarmigan.ee/images/events/262/original/1000px-Processing_Logo_Clipped.png?1370559023"></h2>
-					<h2><img style="max-width:10%" src="http://dailyjs.com/images/posts/processing-logo.png"></h2>
+	<section id="processingIntro"  class="slide">
+		<h2>Processing - Heads Up</h2>
+		<p>
+			It is an open source programming language and IDE.
+		</p>
+		<p>
+			Started to act as a tool to get non-programmers started with programming.
+		</p>
+		<p>
+			It's build on top of Java, but with simplified sintax and graphics programming model.
+		</p>
+		<img src="img/ide.png" />
 
-					<h3>Creative Programming</h3>
-					<p>
-						<small>Created by Lucas Rudi</a></small>
-					</p>
-				</section>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+		
+	<section id="processingWhatItIs"  class="slide">
+		<h2>What it is?</h2>
+		<ul>
+			<li>Strictly Typed</li>
+			<li>Has classes and Java-"inheritance"</li>
+			<li>global access funciton</li>
+			<textarea id="code" name="code" class="code CodeMirror" mode="javascript" style="display: block;" runnable="false">
+				void setup() 
+				{
+				  size(200, 200);  // Sets the canvas size to 200 by 200 pixels
+				  stroke(255);     // Set line drawing color to monochrome white
+				  frameRate(30);   // Set up draw() to be called 30 times per second
+				}
+				 
+				float y = 100;
+				 
+				// The statements in draw() are executed until the 
+				// program is stopped. The function is called as many
+				// times per second as the frameRate. If no explicit
+				// rate is set, this is 45 times per second.
+				void draw() 
+				{ 
+				  background(0);   // Set the background to monochrome black
+				  y = y - 1; 
+				  if (y < 0) { y = height; } 
+				  line(0, y, width, y);  // draw a horizontal line at height y
+				}
+			</textarea>
+			<li>easy to use 3D, OpenGL and WebGL</li>
+		</ul>
 
-				<section>
-					<section>
-						<h2>Processing - Heads Up</h2>
-						<p>
-							It is an open source programming language and IDE.
-							Started to act as a tool to get non-programmers started with programming.
-							It's build on top of Java, but with simplified sintax and graphics programming model.
-						</p>
+		<meta class="notes">
+			talk about why good and bad things comes from the global functions feature
+			AWT
 
-						<aside class="notes">
-							
-						</aside>
-					</section>
-					
-					<section>
-						<h2>What it is?</h2>
-						<ul>
-							<li>Strictly Typed</li>
-							<li>Has classes and Java-"inheritance"</li>
-							<li>global access funciton</li>
-							<li>easy to use 3D, OpenGL and WebGL</li>
-						</ul>
+		</meta>
+		<div class="footer"><img src="img/logo.jpg" /></div>
 
-						<aside class="notes">
-							talk about why good and bad things comes from the global functions feature
+	</section>
 
-						</aside>
-					</section>
-				</section>
+	<section id="procesingJsIntro"  class="slide">
+		<h2>ProcessingJS - Heads Up</h2>
+		<p>
+			Is a JS port for Processing
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+		
+	</section>
+	<section id="processingJsHowItWorks"  class="slide">
+		<h2>How it works?</h2>
+		<p>
+			Renders content on an HTML canvas element
+			<img src="img/canvas.png" />
+		</p>
 
-				<section>
-					<section>
-						<h2>ProcessingJS - Heads Up</h2>
-						<p>
-							Is a JS port for Processing
-						</p>
-						
-					</section>
-					<section>
-						<h2>How it works?</h2>
-						<p>
-							Renders content on an HTML canvas element
-							<canvas data-processing-sources="example.pde"></canvas>
-						</p>
+		<aside class="notes">
+			Only browsers that support canvas
+		</aside>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
 
-						<aside class="notes">
-							Only browsers that support canvas
-						</aside>
-					</section>
-				</section>
+	<section id="ide"  class="slide">
+		<h2>The IDE</h2>
+		<p>
+			Modes, Libraries and Tools
+		</p>
+		<p>
+			Every new class extends from PApplet
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+		
+	</section>
+		
 
-				<section>
-					<section>
-						<h2>The IDE</h2>
-						<p>
-							Modes, Libraries and Tools
-						</p>
-						<p>
-							Every new class extends from PApplet
-						</p>
-						
-					</section>
-					
-				</section>
+	<section id="features"  class="slide">
+		<h2>Remarkable features</h2>
+		<p>
+			Audio player
+		</p>
+		<aside class="notes">
+			player.setAnalysing(true);
+		</aside>
+		<p>
+			Accelerometer
+		</p>
+		<aside class="notes">
+			this works for Android 
+		</aside>
+		<p>
+			Physics
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+		
+	</section>
+	<section id="deviceintegration"  class="slide">
+		<h2>Device integration</h2>
+		<ol>
+			<li class="fragment"><code>kinect</code></li>
+			<li class="fragment"><code>psmove</code></li>
+			<li class="fragment"><code>mobiles</code></li>
+			<li class="fragment"><code>arduino</code></li>
+			<li class="fragment"><code>rasperry pi</code></li>
+			<li class="fragment"><code>apple sensor light</code></li>
+			<li class="fragment"><code>apple sudden motion sensor</code></li>
+			<li class="fragment"><code>webcam</code></li>
+			<li class="fragment"><code>gps (gpx)</code></li>
+		</ol>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+		
 
-				<section>
-					<section>
-						<h2>Remarkable features</h2>
-						<p>
-							Audio player
-						</p>
-						<aside class="notes">
-							player.setAnalysing(true);
-						</aside>
-						<p>
-							Accelerometer
-						</p>
-						<aside class="notes">
-							this works for Android 
-						</aside>
-						<p>
-							Physics
-						</p>
-						
-					</section>
-					
-				</section>
+	<section id="demo1"  class="slide">
+		<h2>Demos</h2>
+		<p>
+			Music
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+	<section id="demo2"  class="slide">
+		<h2>Demos</h2>
+		<p>
+			Angry
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+	<section id="demo3"  class="slide">
+		<h2>Demos</h2>
+		<p>
+			Kinect
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+	<section id="demo4"  class="slide">
+		<h2>Demos</h2>
+		<p>
+			Lightsaber
+		</p>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+	<section id="questions" class="slide">
+		<h2>Processing & Processing JS</h2>
+		<div class="feedback-slide">Questions?</div>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+	<section id="thanks" class="slide">
+		<h2>Processing & Processing JS</h2>
+		<div class="feedback-slide">Thanks!</div>
+		<h3 class="email-field">lucas.rudi@rga.com</h3>
+		<div class="footer"><img src="img/logo.jpg" /></div>
+	</section>
+		
+	<a href="#" title="Previous" class="deck-prev-link">&#8592;</a>
+	<a href="#" title="Next" class="deck-next-link">&#8594;</a>
+	<p class="deck-status">
+		<span class="deck-status-current"></span>&nbsp;/
+		<span class="deck-status-total"></span>
+	</p>
+	<a href="#" class="exit-fullscreen">x</a>
 
-				<section>
-					<section>
-						<h2>Demos</h2>
-						<p>
-							Music
-						</p>
-					</section>
-					<section>
-						<h2>Demos</h2>
-						<p>
-							Presentation
-						</p>
-					</section>
-					<section>
-						<h2>Demos</h2>
-						<p>
-							Lightsaber
-						</p>
-					</section>
-					
-				</section>
-
-			</div>
-
-		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
-
-		<script>
-
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/leap/leap.js', async: true }
-					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
-
-	</body>
+	<script src="js/jquery-1.7.min.js"></script>
+	<script src="js/slides/deck.core.js"></script>
+	<script src="js/slides/deck.hash.js"></script>
+	<script src="js/slides/deck.status.js"></script>
+	<script src="js/slides/deck.navigation.js"></script>
+	<script src="js/slides/slides.js"></script>
+</body>
 </html>
